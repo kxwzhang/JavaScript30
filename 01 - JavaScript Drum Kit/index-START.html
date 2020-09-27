@@ -58,20 +58,31 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
-  window.addEventListener('keydown', (e) => {
+  
+  const playSound = (e) => {
     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
     const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
     if (!audio) return;
     audio.currentTime = 0; // rewinds the audio
     audio.play();
-    console.log(key);
     key.classList.add('playing');
-  });
-  window.addEventListener('keyup', (e) => {
-    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-    if (!key) return;
-    key.classList.remove('playing');
-  });
+  };
+
+  // don't use fat arrow function here to avoid capturing the window
+  function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    this.classList.remove('playing');
+  };
+
+  window.addEventListener('keydown', playSound);
+
+  // window.addEventListener('keyup', (e) => {
+  //   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+  //   if (!key) return;
+  //   key.classList.remove('playing');
+  // });
+  const keys = document.querySelectorAll('.key');
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 </script>
 
 
