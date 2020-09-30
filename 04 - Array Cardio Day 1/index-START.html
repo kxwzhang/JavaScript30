@@ -47,8 +47,12 @@
     const total = inventors.reduce((acc, el) => acc + (el.passed - el.year), 0);
     console.log('total: ', total);
     // 5. Sort the inventors by years lived
-    inventors.sort((a, b) => ((a.passed - a.year) - (b.passed - b.year))); 
-    console.log('sorted by years lived: ', inventors);
+    const lived = inventors.sort((a, b) => {
+      const lastGuy = a.passed - a.year;
+      const nextGuy = b.passed - b.year;
+      return nextGuy - lastGuy;
+    }); 
+    console.table(lived);
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
@@ -61,13 +65,9 @@
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
     const sums = data.reduce((acc, el) => {
-      console.log('acc: ', acc);
-      console.log('el: ', el);
       if (acc[el]) {
-        console.log('hitting acc[el]++')
         return acc[el]++
       } else {
-        console.log('hitting eles')
         return acc[el] = 1
       }
     }, {});
