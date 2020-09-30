@@ -58,6 +58,8 @@
     const category = document.querySelector('.mw-category');
     const links = category.querySelectorAll('a');
 
+    const de = [...links].map(link => link.textContent);
+
     // 7. sort Exercise
     // Sort the people alphabetically by last name
     inventors.sort((a, b) => (a.last - b.last));
