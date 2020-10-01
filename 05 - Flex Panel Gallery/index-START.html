@@ -66,7 +66,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 1px solid red;
+      /* border: 1px solid red; */
     }
 
     .panel > *:first-child {
@@ -133,7 +133,11 @@
   </div>
 
   <script>
-
+    const panels = document.querySelectorAll('.panels');
+    function toggleOpen() {
+      this.classList.toggle('open');
+    }
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
   </script>
 
 
