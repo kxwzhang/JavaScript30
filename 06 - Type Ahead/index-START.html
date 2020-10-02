@@ -46,6 +46,10 @@
     suggestions.innerHTML = html;
   }
 
+  function numberWithCommas(x) {
+    return x.toStrigng().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
   const searchInput = document.querySelector('.search');
   const suggestions = document.querySelector('.suggestions');
 
