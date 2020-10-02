@@ -24,7 +24,9 @@
     .then(data => cities.push(...data));
 
   function findMatches(wordToMatch, cities) {
-    return cities.filter(city => );
+    return cities.filter(city => {
+      const regex = new RegExp(wordToMatch, 'gi');
+    });
   }
 
 
