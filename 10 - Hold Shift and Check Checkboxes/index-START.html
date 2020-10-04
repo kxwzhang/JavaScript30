@@ -101,6 +101,15 @@
 
   function handleCheck(e) {
     console.log(e);
+    let inBetween = false;
+    // Check if shift key was held down
+    // AND check if its checking
+    if (e.shiftKey && this.checked) {
+      // loop over every single checkbox
+      checkboxes.forEach(checkbox => {
+        if (checkbox === this || checkbox === lastChecked) inBetween = !inBetween;
+      });
+    }
 
     lastChecked = this;
   }
