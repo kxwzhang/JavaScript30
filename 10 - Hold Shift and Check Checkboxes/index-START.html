@@ -107,9 +107,11 @@
     if (e.shiftKey && this.checked) {
       // loop over every single checkbox
       checkboxes.forEach(checkbox => {
-        if (checkbox === this || checkbox === lastChecked) inBetween = !inBetween;
+        if (checkbox === e.currentTarget || checkbox === lastChecked) inBetween = !inBetween;
+        if (inBetween) checkbox.checked = true;
       });
     }
+
 
     lastChecked = this;
   }
