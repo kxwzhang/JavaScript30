@@ -67,7 +67,16 @@
     console.count('bruh');
     console.count('bruh');
     // timing
+    console.time('fetching data from github');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data from github');
+        console.log(data);
+      });
 
+
+    console.table(dogs);
   </script>
 </body>
 </html>
