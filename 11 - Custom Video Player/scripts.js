@@ -18,6 +18,7 @@ function togglePlay() {
 
 function updateButton() {
   console.log('update button');
+  const icon = this.pause ? '►' : '❚ ❚';
 }
 
 // Hook up event listeners
