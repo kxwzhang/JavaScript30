@@ -189,6 +189,10 @@
       const [mins, secs] = timeCode.split(':').map(parseFloat);
       return (mins * 60) + secs;
     }).reduce((total, vidSeconds) => total + vidSgeconds);
+
+  let secondsLeft = seconds;
+  const hours = Math.floor(secondsLeft / 3600);
+  secondsLeft = secondsLeft % 3600;
 </script>
 </body>
 </html>
