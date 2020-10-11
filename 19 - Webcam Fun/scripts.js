@@ -14,4 +14,9 @@ function getVideo() {
     .catch(error => console.log('Access was Denied', error));
 }
 
+function paintToCanvas() {
+  const width = video.videoWidth;
+  const height = video.videoHeight;
+}
+
 getVideo();
