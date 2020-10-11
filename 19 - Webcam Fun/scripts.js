@@ -23,12 +23,12 @@ function paintToCanvas() {
   return setInterval(() => {
     ctx.drawImage(video, 0, 0, width, height);
     // take pixels out
-    let pixels = ctx.getImageData(0, 0, width, height);
-    ctx.globalAlpha = 0.1;
+    // let pixels = ctx.getImageData(0, 0, width, height);
+    // ctx.globalAlpha = 0.1;
     // adjust them
-    pixels = rgbSplit(pixels);
+    // pixels = rgbSplit(pixels);
     // add pixels back in
-    ctx.putImageData(pixels, 0, 0);
+    // ctx.putImageData(pixels, 0, 0);
   }, 16);
 }
 
