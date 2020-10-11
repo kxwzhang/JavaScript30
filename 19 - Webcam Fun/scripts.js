@@ -22,6 +22,8 @@ function paintToCanvas() {
   
   return setInterval(() => {
     ctx.drawImage(video, 0, 0, width, height);
+    const pixels = ctx.getImageData(0, 0, width, height);
+    pixels = redEffect(pixels);
   }, 16);
 }
 
@@ -36,6 +38,14 @@ function takePhoto() {
   link.innerHTML = `<img src=${data} alt="Handsome Man" />`;
   strip.insertBefore(link, strip.firstChild);
 
+}
+
+function redEffect(pixels) {
+  for (let i = 0; i < pixels.length; i+= 4) {
+    pixels[i] = pixels.data[i] + 200; // RED
+    pixels.data[i + 1] = pixels.data[i + 1] - 50; // GREEN
+    pixels.data[i + 2] = pixels.data[i + 2] * 0.5; // BLUE
+  } 
 }
 
 getVideo();
