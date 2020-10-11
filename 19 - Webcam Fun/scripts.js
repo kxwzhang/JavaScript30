@@ -11,6 +11,7 @@ function getVideo() {
       video.srcObject = localMediaStream;
       video.play();
     })
+    .catch(error => console.log('Access was Denied', error));
 }
 
 getVideo();
